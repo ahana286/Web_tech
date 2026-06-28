@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Life Saver Blood Donation Program - Register as a donor or request blood in emergency">
+    <meta name="author" content="Life Saver Campaign">
+    <title>Life Saver Blood Donation Program</title>
+
+    <style>
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            background-color: #eaf3fb;
+            color: #1a2a3a;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: 30px;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #1565a8;
+            text-align: center;
+            margin-bottom: 18px;
+            border-bottom: 2px solid #b5d4f4;
+            padding-bottom: 10px;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            margin-bottom: 3px;
+            font-weight: bold;
+            font-size: 14px;
+            color: #1a3a5c;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 9px 11px;
+            border: 1.5px solid #b5d4f4;
+            border-radius: 5px;
+            font-size: 14px;
+            outline: none;
+            background-color: #f4f9ff;
+            color: #1a2a3a;
+        }
+
+        /* Pseudo-class selectors */
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus,
+        input[type="date"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #1565a8;
+            outline: 2px solid #b5d4f4;
+            background-color: #fff;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0c447c;
+            cursor: pointer;
+            transform: translateY(-1px);
+        }
+
+        table tr:hover {
+            background-color: #e6f1fb;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        fieldset {
+            border: 1.5px solid #b5d4f4;
+            border-radius: 7px;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+            background-color: #f4f9ff;
+        }
+
+        legend {
+            font-weight: bold;
+            color: #1565a8;
+            padding: 0 8px;
+            font-size: 14px;
+            background-color: #e6f1fb;
+            border-radius: 4px;
+        }
+
+        footer {
+            background-color: #0c2d4d;
+            color: #b5d4f4;
+            text-align: center;
+            padding: 22px;
+            font-size: 13px;
+            margin-top: 40px;
+        }
+
+        footer span {
+            color: #85b7eb;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        th {
+            background-color: #1565a8;
+            color: white;
+            padding: 11px 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        td {
+            padding: 9px 12px;
+            border-bottom: 1px solid #d4e8f8;
+            color: #1a2a3a;
+        }
+
+        /* ID selectors */
+        #page-wrapper {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        #submit-donor {
+            background-color: #1565a8;
+            color: white;
+            border: none;
+            padding: 11px 28px;
+            border-radius: 5px;
+            font-size: 15px;
+            margin-top: 12px;
+            width: 100%;
+            transition: background-color 0.2s, transform 0.15s;
+        }
+
+        #submit-request {
+            background-color: #0f6e56;
+            color: white;
+            border: none;
+            padding: 11px 28px;
+            border-radius: 5px;
+            font-size: 15px;
+            margin-top: 12px;
+            width: 100%;
+            transition: background-color 0.2s, transform 0.15s;
+        }
+
+        #submit-request:hover {
+            background-color: #085041;
+            cursor: pointer;
+            transform: translateY(-1px);
+        }
+
+        
+        .form-card {
+            background-color: #fff;
+            border: 1.5px solid #b5d4f4;
+            border-radius: 10px;
+            padding: 28px 32px;
+            margin-bottom: 30px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 22px;
+            margin-top: 7px;
+            flex-wrap: wrap;
+        }
+
+        .radio-group label {
+            font-weight: normal;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #1a3a5c;
+        }
+
+        .intro-box {
+            background-color: #fff;
+            border-left: 5px solid #1565a8;
+            padding: 16px 20px;
+            margin: 22px 0 28px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .intro-box p {
+            color: #2a4a6a;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: bold;
+            color: #1565a8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 7px;
+        }
+
+        .table-section {
+            background-color: #fff;
+            border: 1.5px solid #b5d4f4;
+            border-radius: 10px;
+            padding: 28px 32px;
+            margin-bottom: 30px;
+            overflow: auto;
+        }
+
+        .badge-available {
+            background-color: #eaf3de;
+            color: #3b6d11;
+            border-radius: 4px;
+            padding: 3px 10px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .badge-low {
+            background-color: #faeeda;
+            color: #854f0b;
+            border-radius: 4px;
+            padding: 3px 10px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header style="background-color: #1565a8; color: white; padding: 30px 20px; text-align: center; position: relative; z-index: 10;">
+        <h1>&#9829; Life Saver Blood Donation Program</h1>
+        <p style="margin-top: 10px; font-size: 14px; color: #b5d4f4;">
+            A voluntary community initiative bridging donors and patients across Bangladesh — because one donation can save three lives.
+        </p>
+    </header>
+
+    <div id="page-wrapper">
+
+        <main>
+
+            <div class="intro-box">
+                <p class="section-label">About This Program</p>
+                <p>Life Saver was founded to reduce the critical shortage of safe blood in Bangladesh. We connect willing donors with hospitals and families facing emergencies. If you are healthy and aged 18–65, registering takes just two minutes. If you or a loved one urgently needs blood, submit a request below and our team will reach out within the hour.</p>
+            </div>
+
+            <!-- FORM 1: Donor Registration -->
+            <section>
+                <div class="form-card">
+                    <h2>Blood Donor Registration Form</h2>
+
+                    <form action="#" method="post">
+
+                        <fieldset>
+                            <legend>Personal Information</legend>
+
+                            <label for="donorname">Full Name</label>
+                            <input type="text" id="donorname" name="donorname" required>
+
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" min="18" max="65" required>
+
+                            <label>Gender</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="gender" value="Male"> Male</label>
+                                <label><input type="radio" name="gender" value="Female"> Female</label>
+                                <label><input type="radio" name="gender" value="Other"> Other</label>
+                            </div>
+
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+
+                            <label for="address">Address</label>
+                            <textarea id="address" name="address" rows="3"></textarea>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Medical Information</legend>
+
+                            <label for="blood-group">Blood Group</label>
+                            <select id="blood-group" name="blood_group" required>
+                                <option value="">-- Select Blood Group --</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+
+                            <label for="last-donation">Last Donation Date</label>
+                            <input type="date" id="last-donation" name="last_donation_date">
+
+                            <label for="health-condition">Current Health Condition</label>
+                            <textarea id="health-condition" name="health_condition" rows="3" required></textarea>
+                        </fieldset>
+
+                        <label style="font-weight: normal; display: flex; align-items: flex-start; gap: 8px; margin-top: 12px; color: #1a3a5c;">
+                            <input type="checkbox" name="terms" required style="width:auto; margin-top:3px;">
+                            I confirm that the information provided is accurate and I agree to the Terms and Conditions.
+                        </label>
+
+                        <input type="submit" id="submit-donor" value="Register as Donor">
+                    </form>
+                </div>
+            </section>
+
+            <!-- FORM 2: Blood Request -->
+            <section>
+                <div class="form-card">
+                    <h2>Emergency Blood Request Form</h2>
+
+                    <form action="#" method="post">
+
+                        <fieldset>
+                            <legend>Patient Information</legend>
+
+                            <label for="patient-name">Patient Full Name</label>
+                            <input type="text" id="patient-name" name="patient_name" required>
+
+                            <label for="hospital-name">Hospital Name</label>
+                            <input type="text" id="hospital-name" name="hospital_name" required>
+
+                            <label for="emergency-contact">Emergency Contact Number</label>
+                            <input type="tel" id="emergency-contact" name="emergency_contact" required>
+
+                            <label>Patient Gender</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="patient_gender" value="Male"> Male</label>
+                                <label><input type="radio" name="patient_gender" value="Female"> Female</label>
+                                <label><input type="radio" name="patient_gender" value="Other"> Other</label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Blood Requirement Details</legend>
+
+                            <label for="required-blood">Required Blood Group</label>
+                            <select id="required-blood" name="required_blood_group" required>
+                                <option value="">-- Select Blood Group --</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+
+                            <label for="required-date">Required By Date</label>
+                            <input type="date" id="required-date" name="required_date">
+
+                            <label for="additional-message">Additional Message</label>
+                            <textarea id="additional-message" name="additional_message" rows="4"></textarea>
+                        </fieldset>
+
+                        <label style="font-weight: normal; display: flex; align-items: flex-start; gap: 8px; margin-top: 12px; color: #1a3a5c;">
+                            <input type="checkbox" name="terms" required style="width:auto; margin-top:3px;">
+                            I confirm that this is a genuine request and I agree to the Terms and Conditions.
+                        </label>
+
+                        <input type="submit" id="submit-request" value="Submit Blood Request">
+                    </form>
+                </div>
+            </section>
+
+            <!-- Blood Availability Table -->
+            <article>
+                <div class="table-section">
+                    <h2>Blood Group Availability — June 2026</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                             <th>Blood Group</th>
+                                <th>Registered Donors</th>
+                                <th>Active This Month</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>A+</td><td>274</td><td>58</td><td><span class="badge-available">Available</span></td></tr>
+                            <tr><td>A-</td><td>43</td><td>8</td><td><span class="badge-low">Low Stock</span></td></tr>
+                            <tr><td>B+</td><td>361</td><td>82</td><td><span class="badge-available">Available</span></td></tr>
+                            <tr><td>B-</td><td>39</td><td>6</td><td><span class="badge-low">Low Stock</span></td></tr>
+                            <tr><td>AB+</td><td>112</td><td>27</td><td><span class="badge-available">Available</span></td></tr>
+                            <tr><td>AB-</td><td>21</td><td>3</td><td><span class="badge-low">Low Stock</span></td></tr>
+                            <tr><td>O+</td><td>489</td><td>104</td><td><span class="badge-available">Available</span></td></tr>
+                            <tr><td>O-</td><td>67</td><td>14</td><td><span class="badge-available">Available</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+        </main>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 <span>Life Saver Blood Donation Program</span> &nbsp;|&nbsp; Dhaka, Bangladesh</p>
+        <p style="margin-top: 7px;">24/7 Helpline: <span>+880-1800-LIFESAVE</span> &nbsp;|&nbsp; Email: <span>help@lifesaver.org.bd</span></p>
+    </footer>
+
+</body>
+</html>
